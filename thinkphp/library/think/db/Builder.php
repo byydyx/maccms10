@@ -387,7 +387,6 @@ abstract class Builder
                 }
                 $logic = isset($val[2]) ? $val[2] : 'AND';
                 $whereStr .= '(' . implode(' ' . strtoupper($logic) . ' ', $array) . ')';
-                //$whereStr .= '(' . implode($array, ' ' . strtoupper($logic) . ' ') . ')';
             } else {
                 $whereStr .= $key . ' ' . $exp . ' ' . $this->parseValue($value, $field);
             }
@@ -424,7 +423,8 @@ abstract class Builder
                     $this->query->bind($bind);
                     $zone = implode(',', $array);
                 } else {
-                    $zone = implode(',', $this->parseValue($value, $field));
+                    $parsed = $this->parseValue($value, $field);
+                    $zone = is_array($parsed) ? implode(',', $parsed) : $parsed;
                 }
                 $whereStr .= $key . ' ' . $exp . ' (' . (empty($zone) ? "''" : $zone) . ')';
             }
