@@ -700,12 +700,15 @@ class Collect extends Base {
                 } else {
                     if(empty($config['uprule'])){
                         $des = lang('model/collect/uprule_empty');
+                        $color = 'red';
                     }
                     elseif ($info['vod_lock'] == 1) {
                         $des = lang('model/collect/data_lock');
+                        $color = 'red';
                     }
                     elseif($param['opt'] == 1){
                         $des= lang('model/collect/not_check_update');
+                        $color = 'red';
                     }
                     else {
                         unset($v['vod_time_add']);
@@ -1188,9 +1191,11 @@ class Collect extends Base {
 
                     if(empty($config['uprule'])){
                         $des = lang('model/collect/uprule_empty');
+                        $color = 'red';
                     }
                     elseif($info['art_lock'] == 1) {
                         $des = lang('model/collect/data_lock');
+                        $color = 'red';
                     }
                     else {
                         unset($v['art_time_add']);
@@ -1491,9 +1496,11 @@ class Collect extends Base {
 
                     if(empty($config['uprule'])){
                         $des = lang('model/collect/uprule_empty');
+                        $color = 'red';
                     }
                     elseif ($info['actor_lock'] == 1) {
                         $des = lang('model/collect/data_lock');
+                        $color = 'red';
                     }
                     else {
                         unset($v['actor_time_add']);
@@ -1790,9 +1797,11 @@ class Collect extends Base {
 
                         if(empty($config['uprule'])){
                             $des = lang('model/collect/uprule_empty');
+                            $color = 'red';
                         }
                         elseif ($info['role_lock'] == 1) {
                             $des = lang('model/collect/data_lock');
+                            $color = 'red';
                         }
                         else {
                             unset($v['role_time_add']);
@@ -2072,9 +2081,11 @@ class Collect extends Base {
 
                     if(empty($config['uprule'])){
                         $des = lang('model/collect/uprule_empty');
+                        $color = 'red';
                     }
                     elseif ($info['website_lock'] == 1) {
                         $des = lang('model/collect/data_lock');
+                        $color = 'red';
                     }
                     else {
                         unset($v['website_time_add']);
@@ -2353,6 +2364,7 @@ class Collect extends Base {
 
                         if(empty($config['uprule'])){
                             $des = lang('model/collect/uprule_empty');
+                            $color = 'red';
                         }
                         else {
                             $rc = true;
