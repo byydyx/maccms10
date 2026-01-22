@@ -778,12 +778,10 @@ function mac_parse_sql($sql='',$limit=0,$prefix=[])
 
         // 只返回一条语句
         if ($limit == 1) {
-            // return implode($pure_sql, "");
             return implode("", $pure_sql);
         }
 
         // 以数组形式返回sql语句
-        // $pure_sql = implode($pure_sql, "\n");
         $pure_sql = implode("\n", $pure_sql);
         $pure_sql = explode(";\n", $pure_sql);
         return $pure_sql;
@@ -913,16 +911,16 @@ function mac_rep_pse_syn($psearr,$txt)
 }
 
 function mac_get_tag($title,$content){
-    $url = base64_decode('aHR0cDovL2FwaS5tYWNjbXMucHJv') . '/keyword/index?name='.rawurlencode($title).'&txt='.rawurlencode($title).rawurlencode(mac_substring(strip_tags($content),200));
-    $data = mac_curl_get($url);
-    $json = @json_decode($data,true);
-    if($json){
-        if($json['code']==1){
-            return implode(',',$json['data']);
+        $url = base64_decode('aHR0cDovL2FwaS5tYWNjbXMucHJv') . '/keyword/index?name='.rawurlencode($title).'&txt='.rawurlencode($title).rawurlencode(mac_substring(strip_tags($content),200));
+        $data = mac_curl_get($url);
+        $json = @json_decode($data,true);
+        if($json){
+            if($json['code']==1){
+                return is_array($json['data']) ? implode(',',$json['data']) : $json['data'];
+            }
         }
+        return false;
     }
-    return false;
-}
 
 function mac_get_uniqid_code($code_prefix='')
 {
