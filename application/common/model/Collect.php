@@ -569,6 +569,16 @@ class Collect extends Base {
 
 
                 $collect_filter=[];
+                // Initialize filter arrays to avoid PHP 8 errors
+                if($param['filter'] > 0){
+                    if(!isset($collect_filter['play'][$param['filter']]['cj_play_from_arr'])) {
+                        $collect_filter['play'][$param['filter']]['cj_play_from_arr'] = [];
+                        $collect_filter['play'][$param['filter']]['cj_play_url_arr'] = [];
+                        $collect_filter['play'][$param['filter']]['cj_play_server_arr'] = [];
+                        $collect_filter['play'][$param['filter']]['cj_play_note_arr'] = [];
+                    }
+                }
+                
                 foreach($cj_play_from_arr as $kk=>$vv){
                     if(empty($vv)){
                         unset($cj_play_from_arr[$kk]);
@@ -577,7 +587,6 @@ class Collect extends Base {
                         unset($cj_play_note_arr[$kk]);
                         continue;
                     }
-
                     if(empty($players[$vv])){
                         unset($cj_play_from_arr[$kk]);
                         unset($cj_play_url_arr[$kk]);
@@ -599,6 +608,17 @@ class Collect extends Base {
                         }
                     }
                 }
+                
+                // Initialize down filter arrays to avoid PHP 8 errors
+                if($param['filter'] > 0){
+                    if(!isset($collect_filter['down'][$param['filter']]['cj_down_from_arr'])) {
+                        $collect_filter['down'][$param['filter']]['cj_down_from_arr'] = [];
+                        $collect_filter['down'][$param['filter']]['cj_down_url_arr'] = [];
+                        $collect_filter['down'][$param['filter']]['cj_down_server_arr'] = [];
+                        $collect_filter['down'][$param['filter']]['cj_down_note_arr'] = [];
+                    }
+                }
+                
                 foreach($cj_down_from_arr as $kk=>$vv){
                     if(empty($vv)){
                         unset($cj_down_from_arr[$kk]);
