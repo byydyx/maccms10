@@ -920,6 +920,7 @@ class Collect extends Base {
                         }
                         else{
                             $des = lang('model/collect/not_need_update');
+                            $color = 'red';
                         }
 
                     }
@@ -1242,6 +1243,7 @@ class Collect extends Base {
                             }
                             else{
                                 $des = lang('model/collect/not_need_update');
+                                $color = 'red';
                             }
                         }
 
@@ -1529,6 +1531,7 @@ class Collect extends Base {
                             }
                             else{
                                 $des = lang('model/collect/not_need_update');
+                                $color = 'red';
                             }
                         }
 
@@ -1821,6 +1824,7 @@ class Collect extends Base {
                                 }
                                 else{
                                     $des = lang('model/collect/not_need_update');
+                                    $color = 'red';
                                 }
                             }
 
@@ -2108,6 +2112,7 @@ class Collect extends Base {
                             }
                             else{
                                 $des = lang('model/collect/not_need_update');
+                                $color = 'red';
                             }
                         }
 
@@ -2370,6 +2375,7 @@ class Collect extends Base {
                                 }
                                 else{
                                     $des = lang('model/collect/not_need_update');
+                                    $color = 'red';
                                 }
                             }
 
