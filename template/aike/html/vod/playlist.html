@@ -1,0 +1,39 @@
+	<div id="content">
+	   <div class="search">
+	      <form id="search" name="search" method="get" action="{:mac_url('vod/search')}" onSubmit="return qrsearch();">
+	        <input type="text" name="wd"  id="wd" placeholder="输入关键词" value="{$param.wd}"  autocomplete="off">
+	        <button id="submit"><i class="fas fa-search"></i></button>
+	       </form>
+	    </div>
+	    <div class="bd">
+	        <div class="bd_title"><b>剧名：{$obj.vod_name}-{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}</b></div>
+	        <br>
+			<div class="bf-h">{$player_data}{$player_js}</div>
+		</div>	
+		{maccms:foreach name="obj.vod_play_list" id="vo"}
+	    <div class="bd">
+	    	<div class="bd_title"><b>{$vo.player_info.show}：<font color="red" size="1">模板来自于欧皇论坛网站（ohbbs.cn）</font></b></div>
+	    	<ul id="nav">
+	    	{maccms:foreach name="vo.urls" id="vo2" key="key2"}	
+	    	<li style="margin: 0 0 10px 8px;" {if condition="$param.sid eq $vo.sid && $param.nid eq $vo2.nid"}class="hsc"{/if} >
+	    	<a href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}">{$vo2.name}</a>
+	    	</li>
+	    		{/maccms:foreach}
+	      </ul>
+	    </div>
+	    {/maccms:foreach}
+	    <div class="bd">
+	    	<div class="bd_title"><b>剧情介绍：</b></div>
+	    	<div style="text-indent: 2em;">{$obj.vod_content|mac_filter_html}</div>
+	    </div>
+	    	<div class="bd">
+			<div class="bd_title"><b>猜你喜欢：</b></div>
+		<ul id="list">
+			{maccms:vod num="6" type="current" order="desc" by="time"}
+			{include file="public/vod_box"}
+			{/maccms:vod} 	
+		</ul>
+		
+	</div>
+	</div>
+	
