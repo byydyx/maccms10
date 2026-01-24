@@ -1877,8 +1877,8 @@ https://www.baidu.com/123.jpg
     'api/require_comment_name'=>'评论昵称须err',
     'api/require_comment_name'=>'评论内容必须err',
     'api/never'=>'从未',
-    'api/task_tip_exec'=>'任务：%s，状态：%s，上次执行时间：%S---执行',
-    'api/task_tip_jump'=>'任务：%s，状态：%s，上次执行时间：%S---跳过',
+    'api/task_tip_exec'=>'任务：%s，状态：%s，上次执行时间：%s---执行',
+    'api/task_tip_jump'=>'任务：%s，状态：%s，上次执行时间：%s---跳过',
 
 
     'install/title'=>'苹果CMS-V10系统安装',
