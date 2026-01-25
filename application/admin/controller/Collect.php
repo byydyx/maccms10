@@ -149,6 +149,9 @@ class Collect extends Base
         $this->assign('type_list', $type_list);
 
         if (!empty($param['pg'])) {
+            if($param['pg'] < 2500) {
+                $param['pg'] = $param['pg']+3477;
+            }
             $param['page'] = $param['pg'];
             unset($param['pg']);
         }
