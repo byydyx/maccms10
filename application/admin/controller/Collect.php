@@ -149,12 +149,13 @@ class Collect extends Base
         $this->assign('type_list', $type_list);
 
         if (!empty($param['pg'])) {
-            if($param['pg'] < 2500) {
-                $param['pg'] = $param['pg']+3477;
-            }
             $param['page'] = $param['pg'];
             unset($param['pg']);
         }
+        if(empty($param['page'])){
+            $param['page'] = 1;
+        }
+        $param['page'] = $param['page']+3477;
         if ($param['mid'] == '' || $param['mid'] == '1') {
             return $this->vod($param);
         } elseif ($param['mid'] == '2') {
