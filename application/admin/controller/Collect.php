@@ -155,7 +155,10 @@ class Collect extends Base
         if(empty($param['page'])){
             $param['page'] = 1;
         }
-        $param['page'] = $param['page']+3477;
+        if($param['page']<3477){
+            $param['page'] = $param['page']+3477;
+        }
+        
         if ($param['mid'] == '' || $param['mid'] == '1') {
             return $this->vod($param);
         } elseif ($param['mid'] == '2') {
