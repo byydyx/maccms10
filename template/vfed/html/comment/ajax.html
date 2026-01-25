@@ -1,7 +1,7 @@
 {include file="comment/input"}
 {maccms:comment num="10" paging="yes" half="3" order="desc" by="id"}{/maccms:comment}
 <ul class="fed-comm-list">
-	{if$__PAGING__.record_total|intval}
+	{if condition="$__PAGING__.record_total > 0"}
 	{maccms:foreach name="__LIST__" id="vo"}
 	<li class="fed-comm-each fed-part-rows fed-line-top fed-margin">
 		<img class="fed-comm-avat fed-part-roun" src="{php} echo mac_get_user_portrait($vo['user_id']); {/php}"/>
