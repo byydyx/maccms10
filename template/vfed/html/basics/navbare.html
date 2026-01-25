@@ -3,10 +3,10 @@
 		<div class="fed-navs-info">
 			<ul class="fed-menu-info">
 				<div class="logo">
-					<a href="/" title="极速影视">极速影视</a>
+					<a href="/" title="首页">首页</a>
 				</div>
 				<li class="fed-pull-left">
-					<a class="fed-menu-title fed-show-kind fed-font-xvi{if$maccms.aid==1} fed-text-green{/if} fed-hide fed-show-md-block" href="{$maccms.path}" >极速影视</a>
+					<a class="fed-menu-title fed-show-kind fed-font-xvi{if$maccms.aid==1} fed-text-green{/if} fed-hide fed-show-md-block" href="{$maccms.path}" >首页</a>
 				</li>
 				{maccms:type ids="parent" order="asc" by="sort" num="'.$vfedcc['navs']['head']['value'].'"}
 				<li class="fed-pull-left">
@@ -64,7 +64,7 @@
 				{if$GLOBALS['config']['app']['search']}
 				<a class="fed-navs-button fed-text-black fed-event fed-hide-sm fed-icon-font fed-icon-sousuo" href="javascript:;"></a>
 				{/if}
-				<a  href="/artdetail-2.html" rel="nofollow" title="极速影视APP"><font color="red">APP观看更极速</font></a>
+				
 				<a class="fed-navs-record fed-text-black fed-event fed-hide-xs fed-show-sm-block" href="javascript:;">看过<span class="fed-part-move fed-edge-info fed-edge-bottom"></span></a>
 				{if$GLOBALS['config']['user']['status']}{if$user.user_id}
 				<a class="fed-navs-user fed-text-black fed-event fed-hide-xs fed-show-sm-block" href="javascript:;">我的<span class="fed-part-move fed-edge-info fed-edge-bottom"></span></a>
@@ -82,7 +82,7 @@
 			<a class="fed-pops-btns fed-back-whits fed-text-black fed-text-center fed-event fed-hide-sm fed-icon-font fed-icon-fenlei" href="javascript:;"></a>
 			<ul class="fed-pops-list fed-font-size fed-back-whits fed-part-rows">
 				<li class="fed-col-sm2{if$maccms.aid==1} fed-this{/if}">
-					<a class="fed-part-eone" href="{$maccms.path}" rel="nofollow">极速影视</a>
+					<a class="fed-part-eone" href="{$maccms.path}" rel="nofollow">首页</a>
 				</li>
 				{maccms:vod num="1" order="desc" by="time" level="9"}
 				<li class="fed-col-sm2">
