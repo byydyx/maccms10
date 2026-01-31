@@ -8,34 +8,12 @@
 				<li class="fed-pull-left">
 					<a class="fed-menu-title fed-show-kind fed-font-xvi{if$maccms.aid==1} fed-text-green{/if} fed-hide fed-show-md-block" href="{$maccms.path}" >首页</a>
 				</li>
-				{maccms:type ids="parent" order="asc" by="sort" num="'.$vfedcc['navs']['head']['value'].'"}
+				{maccms:type ids="parent" order="asc" by="sort" }
 				<li class="fed-pull-left">
 					<a class="fed-menu-title fed-show-kind fed-font-xvi{if$vo.type_id==$obj.type_id||$vo.type_id==$obj.type_1.type_id||$vo.type_id==$obj.parent.type_id} fed-text-green{/if} fed-hide{if$key>$vfedcc['navs']['head']['value']-3} fed-show-lg-block{else} fed-show-md-block{/if}" href="{:mac_url_type($vo)}">{$vo.type_name|mac_filter_html}</a>
 				</li>
-				{/maccms:type}{if$vfedcc['navs']['arts']['state']}
-				<li class="fed-pull-left">
-					<a class="fed-menu-title fed-show-kind fed-font-xvi{if$maccms.aid==20} fed-text-green{/if} fed-hide fed-show-md-block" href="/index.php/vod/type/id/26.html">{$vfedcc['navs']['arts']['name']|mac_default='纪录片'}</a>
-				</li>
-				{/if}{if$vfedcc['navs']['live']['state']}{if$vfedcc['navs']['live']['link']}
-				<li class="fed-pull-left">
-					<a class="fed-menu-title fed-show-kind fed-font-xvi{if$maccms.aid==2} fed-text-green{/if} fed-hide fed-show-md-block" href="{$vfedcc['navs']['live']['link']}">{$vfedcc['navs']['live']['name']|mac_default='直播'}</a>
-				</li>
-				{else}{maccms:type ids="parent" flag="vod"}{if stristr($vo['type_name'],'直播')==true}
-				<li class="fed-pull-left">
-					<a class="fed-menu-title fed-show-kind fed-font-xvi{if$vo.type_id==$obj.type_id||$vo.type_id==$obj.type_1.type_id||$vo.type_id==$obj.parent.type_id} fed-text-green{/if} fed-hide fed-show-md-block" href="{:mac_url_type($vo)}">{$vo.type_name|mac_filter_html}</a>
-				</li>
-				{/if}{/maccms:type}{/if}{/if}{if$vfedcc['navs']['song']['state']}
-				<li class="fed-pull-left">
-					<a class="fed-menu-title fed-show-kind fed-font-xvi{if$maccms.aid==2} fed-text-green{/if} fed-hide fed-show-md-block" href="{$vfedcc['navs']['song']['link']}">{$vfedcc['navs']['song']['name']|mac_default='音乐'}</a>
-				</li>
-				{/if}{if$vfedcc['navs']['topic']['state']}
-				<li class="fed-pull-left">
-					<a class="fed-menu-title fed-show-kind fed-font-xvi{if$maccms.aid==30} fed-text-green{/if} fed-hide{if$vfedcc['navs']['head']['value']==2} fed-show-lg-block{else} fed-show-md-block{/if}" href="/index.php/vod/type/id/43.html">{$vfedcc['navs']['topic']['name']|mac_default='微电影'}</a>
-				</li>
-				{/if}{if$vfedcc['navs']['gbook']['state']}
-			
-				</li>
-				{/if}
+				{/maccms:type}
+				
 				<li class="fed-pull-left">
 					<a class="fed-menu-title fed-show-kind fed-font-xvi fed-navs-navbar fed-event fed-hide fed-show-sm-block{if!$vfedcc['navs']['head']['state']} fed-hide-md{/if}" href="javascript:;">导航<span class="fed-part-move fed-edge-info fed-edge-bottom"></span></a>
 				</li>
@@ -84,7 +62,7 @@
 				<li class="fed-col-sm2{if$maccms.aid==1} fed-this{/if}">
 					<a class="fed-part-eone" href="{$maccms.path}" rel="nofollow">首页</a>
 				</li>
-				{maccms:vod num="1" order="desc" by="time" level="9"}
+				{maccms:vod order="desc" by="time" level="9"}
 				<li class="fed-col-sm2">
 					<a class="fed-part-eone" href="{$vo.vod_jumpurl|mac_default=mac_url_vod_detail($vo)}">{$vo.vod_name|mac_filter_html}</a>
 				</li>
@@ -92,23 +70,7 @@
 				<li class="fed-col-sm2{if$vo.type_id==$obj.type_id||$vo.type_id==$obj.type_1.type_id||$vo.type_id==$obj.parent.type_id} fed-this{/if}">
 					<a class="fed-part-eone" href="{:mac_url_type($vo)}">{$vo.type_name|mac_filter_html}</a>
 				</li>
-				{/maccms:type}{if$vfedcc['navs']['arts']['state']}{maccms:type ids="parent" order="asc" by="sort" flag="art"}
-				<li class="fed-col-sm2{if$vo.type_id==$obj.type_id||$vo.type_id==$obj.type_1.type_id||$vo.type_id==$obj.parent.type_id} fed-this{/if}">
-					<a class="fed-part-eone" href="{:mac_url_type($vo)}">{$vo.type_name|mac_filter_html}</a>
-				</li>
-				{/maccms:type}{/if}{if(mac_data_count(0,'all','actor'))}
-				<li class="fed-col-sm2{if$maccms.aid==80} fed-this{/if}">
-					<a class="fed-part-eone" href="{:mac_url_actor_index()}">明星</a>
-				</li>
-				{/if}{if(mac_data_count(0,'all','topic'))}
-				<li class="fed-col-sm2{if$maccms.aid==30} fed-this{/if}">
-					<a class="fed-part-eone" href="{:mac_url_topic_index()}">专题</a>
-				</li>
-				{/if}{if$GLOBALS['config']['gbook']['status']}
-				<li class="fed-col-sm2{if$maccms.aid==4} fed-this{/if}">
-					<a class="fed-part-eone" href="{:mac_url('gbook/index')}">留言</a>
-				</li>
-				{/if}
+				{/maccms:type}
 			</ul>
 		</div>
 		<div class="fed-pops-search fed-hidden fed-conceal fed-anim fed-anim-upbit">
