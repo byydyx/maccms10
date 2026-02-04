@@ -2,7 +2,7 @@
 	<dl class="fed-col-sx12 fed-col-sm6 fed-col-md4">
 		<dt>{if$obj.childids||$obj.parent.childids}分类{else}类型{/if}</dt>
 		{if$obj.childids||$obj.parent.childids}
-		{maccms:type num="8" ids="current" order="asc" by="sort" flag="vod"}
+		{maccms:type num="20" ids="current" order="asc" by="sort" flag="vod"}
 		<dd{if$key>8} class="fed-hide-sm"{/if}><a href="{:mac_url_type($vo,['area'=>$param.area,'year'=>$param.year,'class'=>$param.class],'show')}">{$vo.type_name|mac_filter_html}</a></dd>
 		{/maccms:type}
 		{elseif$obj.type_extend.class}
