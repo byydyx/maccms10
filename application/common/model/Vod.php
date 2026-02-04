@@ -674,15 +674,15 @@ class Vod extends Base {
         $path = './';
         foreach($list['list'] as $k=>$v){
             $pic = $path.$v['vod_pic'];
-            if(file_exists($pic) && (substr($pic,0,8) == "./upload") || count( explode("./",$pic)  ?: []) ==1){
+            if(file_exists($pic) && (substr($pic,0,8) == "./upload") || count( explode("./",$pic)) ==1){
                 unlink($pic);
             }
             $pic = $path.$v['vod_pic_thumb'];
-            if(file_exists($pic) && (substr($pic,0,8) == "./upload") || count( explode("./",$pic)  ?: []) ==1){
+            if(file_exists($pic) && (substr($pic,0,8) == "./upload") || count( explode("./",$pic)) ==1){
                 unlink($pic);
             }
             $pic = $path.$v['vod_pic_slide'];
-            if(file_exists($pic) && (substr($pic,0,8) == "./upload") || count( explode("./",$pic)  ?: []) ==1){
+            if(file_exists($pic) && (substr($pic,0,8) == "./upload") || count( explode("./",$pic)) ==1){
                 unlink($pic);
             }
             if($GLOBALS['config']['view']['vod_detail'] ==2 ){
