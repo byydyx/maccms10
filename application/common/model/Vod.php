@@ -354,7 +354,7 @@ class Vod extends Base {
 
         if(!empty($hitsmonth)){
             $tmp = explode(' ',$hitsmonth);
-            if(count($tmp ?: [])==1){
+            if(count($tmp)==1){
                 $where['vod_hits_month'] = ['gt', $tmp];
             }
             else{
@@ -363,7 +363,7 @@ class Vod extends Base {
         }
         if(!empty($hitsweek)){
             $tmp = explode(' ',$hitsweek);
-            if(count($tmp ?: [])==1){
+            if(count($tmp)==1){
                 $where['vod_hits_week'] = ['gt', $tmp];
             }
             else{
@@ -372,7 +372,7 @@ class Vod extends Base {
         }
         if(!empty($hitsday)){
             $tmp = explode(' ',$hitsday);
-            if(count($tmp ?: [])==1){
+            if(count($tmp)==1){
                 $where['vod_hits_day'] = ['gt', $tmp];
             }
             else{
@@ -381,7 +381,7 @@ class Vod extends Base {
         }
         if(!empty($hits)){
             $tmp = explode(' ',$hits);
-            if(count($tmp ?: [])==1){
+            if(count($tmp)==1){
                 $where['vod_hits'] = ['gt', $tmp];
             }
             else{
