@@ -48,13 +48,13 @@ class Vod extends Base {
 
         foreach($list as $k=>$v){
             if($addition==1){
-	            if(!empty($v['type_id'])) {
-	                $list[$k]['type'] = $type_list[$v['type_id']];
+                if(!empty($v['type_id'])) {
+                    $list[$k]['type'] = $type_list[$v['type_id']];
                     $list[$k]['type_1'] = $type_list[$list[$k]['type']['type_pid']];
-	            }
-	            if(!empty($v['group_id'])) {
-	                $list[$k]['group'] = $group_list[$v['group_id']];
-	            }
+                }
+                if(!empty($v['group_id'])) {
+                    $list[$k]['group'] = $group_list[$v['group_id']];
+                }
             }
         }
         return ['code'=>1,'msg'=>lang('data_list'),'page'=>$page,'pagecount'=>ceil($total/$limit),'limit'=>$limit,'total'=>$total,'list'=>$list];
